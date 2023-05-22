@@ -57,6 +57,11 @@ function parsegetwallchar(rawgrid) {
 function parsegetgrid(rawgrid) {
   //tests
 
+  if (rawgrid == undefined) {
+    console.log("Erreur!");
+    return;
+  }
+
   let stringGsize = "";
   for (let i = 0; i <= rawgrid[0].length - 7; i++) {
     stringGsize = stringGsize + rawgrid[0][i];
@@ -277,7 +282,7 @@ function findShortestPathLength(grid, i, j) {
     xx = exits[a][0];
     yy = exits[a][1];
 
-    if (path[xx][yy].dist < dist) {
+    if (path[xx][yy].dist < dist && path[xx][yy].dist != -1) {
       dist = path[xx][yy].dist;
       x = xx;
       y = yy;
